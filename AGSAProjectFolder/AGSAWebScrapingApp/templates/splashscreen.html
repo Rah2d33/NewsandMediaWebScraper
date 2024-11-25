@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    {% load static %}
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{% static 'css/splashscreenstyles.css' %}">
+</head>
+<body>
+    <div class="splash-container">
+        <img src="{% static 'Images/R.png' %}" alt="Logo" class="splash-logo">
+
+        <h1 class="splash-title">AGSA Dummy Scraper</h1>
+    </div>
+    <!-- Link to the JavaScript file -->
+    <script src="{% static 'javascript/splashscreen.js' %}"></script>
+</body>
+</html>
