@@ -20,5 +20,7 @@ from AGSAWebScrapingApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='home'),
+    path('', views.splash_screen, name='splash_screen'),  # Root URL
+    path('index/', views.index, name='home'),  # Add a specific path for 'index'
 ]
+

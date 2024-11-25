@@ -1,0 +1,53 @@
+/* Set the background color to black */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+/* Center the content on the splash screen */
+.splash-container {
+    text-align: center;
+    
+}
+
+.splash-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    animation: flip 2s infinite; /* Flip animation */
+}
+
+/* Flip Effect */
+@keyframes flip {
+    0% {
+        transform: rotateY(0deg); /* Initial position */
+    }
+    50% {
+        transform: rotateY(180deg); /* Halfway flipped */
+    }
+    100% {
+        transform: rotateY(360deg); /* Fully flipped back to original */
+    }
+}
+
+
+
+/* Pulsing effect for the splash title */
+.splash-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    animation: pulse 3s infinite; /* Pulse animation applied */
+    color: rgb(55, 14, 96); /* Adjust text color as needed */
+    margin-top: 20px;
+    margin-right: -3px;
+}
