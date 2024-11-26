@@ -1,22 +1,141 @@
-/* AGSA Web Scraping App - style.css */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* General header styling */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
+    padding: 1rem;
+    background-color: #f9f9f9; /* Optional background color */
+    border-bottom: 1px solid #ccc; /* Optional border for separation */
+}
+
+/* Styling the image-container */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the h1 while the image stays left */
+    gap: 1rem; /* Adds space between the logo and the title */
+    position: relative;
+}
+
+/* Styling the logo */
+.image-logo {
+    position: absolute;
+    left: 1rem; /* Aligns the logo to the far left */
+    max-height: 45px; /* Adjust for desired logo size */
+    width: auto;
+}
+
+/* Styling the title */
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 0;
     text-align: center;
+    flex-grow: 1; /* Ensures the title uses available space for centering */
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
     text-align: center;
-    padding: 1em;
-    background-color: #333;
-    color: #fff;
+    background-color: #f1f1f1;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
+
+/* Search bar design */
+.search-bar {
+    display: flex;
+    align-items: center; /* Center elements vertically */
+    width: 80%;
+    max-width: 600px;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.4s ease-in-out;
+    border-color: #4CAF50;
+}
+
+.search-bar:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03);
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 50px 0 0 50px;
+    background-color: transparent;
+}
+
+
+.search-bar input:focus {
+    background-color: transparent;
+}
+
+/* General styling for search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 600px; /* Increased from 400px to 600px for a longer search bar */
+    width: 100%; /* Optional: Ensures the search bar is responsive */
+    margin: 2rem auto;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background-color: #f9f9f9;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 0.75rem; /* Adjusted padding for better proportions */
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    margin-right: 1rem; /* Adds spacing from input if necessary */
+}
+
+/* .search-bar button:focus {
+    outline: 2px solid #007bff;
+} */
+
+.search-bar button.hidden {
+    display: none;
+}
+
+
+

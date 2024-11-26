@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGSA Web Scraper</title>
     {% load static %}
+    <!-- Link to Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Link to CSS file -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Welcome to AGSA Web Scraper</h1>
+        <div class="image-container">
+            <img src="{% static 'Images/R.png' %}" alt="Logo" class="image-logo">
+            <h1 class="header-title">AGSA Dummy Scraper</h1>
+        </div>
     </header>
+    
+    
     <main>
-        <p>This is the home page for your web scraping application.</p>
-        <!-- Add more content here -->
+        <div class="search-bar">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Type to search..." 
+                aria-label="Search"
+                autocomplete="off">
+            <button id="search-btn" class="icon-btn" aria-label="Search">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 AGSA Web Scraper</p>
     </footer>
 
     <!-- Link to JavaScript file -->
-     
     <script src="{% static 'javascript/script.js' %}"></script>
 </body>
 </html>
+
+
+
