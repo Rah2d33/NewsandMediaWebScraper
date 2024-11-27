@@ -43,3 +43,14 @@ searchInput.addEventListener('keypress', (event) => {
 });
 
 
+// JavaScript to manage the active class for sub-nav links
+document.querySelectorAll('.sub-nav a').forEach(link => {
+    link.addEventListener('click', function () {
+        // Remove 'active' class from the currently active link
+        document.querySelector('.sub-nav a.active').classList.remove('active');
+        // Add 'active' class to the clicked link
+        this.classList.add('active');
+    });
+});
+
+
