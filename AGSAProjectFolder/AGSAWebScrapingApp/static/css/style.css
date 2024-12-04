@@ -41,6 +41,7 @@ header {
     text-align: center;
     flex-grow: 1;
 }
+
 /* =============================================== */
 
 /* General styling for search bar */
@@ -90,7 +91,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 50px;
-    margin-top: 10px;
+    margin-top: 20px; /* Increased margin for space */
     padding-bottom: 10px; /* Increase padding to give more space */
     position: relative;
 }
@@ -99,7 +100,7 @@ header {
 .sub-nav::after {
     content: "";
     position: absolute;
-    bottom: -17px; /* Move the line further down */
+    bottom: -18px; /* Move the line further down */
     left: 50%;
     transform: translateX(-50%);
     width: 90%; /* Adjust this to make the divider smaller */
@@ -107,35 +108,39 @@ header {
     background-color: #ddd; /* Keep the color consistent */
 }
 
+/* Sub-nav link styles */
 .sub-nav a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-}
-.sub-nav a i {
-    font-size: 1.2rem;
-}
-
-
-.sub-nav a {
-    text-decoration: none;
     color: #333;
     font-size: 16px;
     padding: 5px 10px;
     position: relative;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition for hover and active states */
+    border: 2px solid transparent; /* Transparent border to prevent shifting */
+    box-sizing: border-box; /* Ensure dimensions include padding and border */
 }
 
+/* Icon styles */
+.sub-nav a i {
+    font-size: 1.2rem;
+}
+
+/* Hover effect */
 .sub-nav a:hover {
-    color: rgb(55, 14, 96); /* Adjust text color as needed */
+    color: rgb(55, 14, 96);
 }
 
+/* Active state styles */
 .sub-nav a.active {
-    color: rgb(55, 14, 96); /* Adjust text color as needed */
+    color: rgb(55, 14, 96);
 }
 
-.sub-nav a.active::after {
+/* Underline effect */
+.sub-nav a.active::after,
+.sub-nav a:hover::after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -154,22 +159,186 @@ header {
     left: 0;
     right: 0;
     height: 2px;
-    background: rgb(55, 14, 96);;
+    background: rgb(55, 14, 96);
     width: 0;
     transition: width 0.3s ease;
 }
 
-.sub-nav a:hover::after {
-    width: 100%;
+
+/* Container for content sections */
+.content-container {
+    position: relative;
+    min-height: 300px; /* Set a fixed minimum height to prevent shifting */
+    overflow: hidden; /* Ensure hidden content does not affect layout */
 }
+
+/* General styling for content sections */
+.content-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: relative; /* Makes active section stack properly */
+}
+
+/* ============================================= */
+
+/* Carousel container */
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+/* Carousel tile */
+/* Base styles for all tiles */
+.tile {
+    flex: 0 0 100%; /* Each tile takes full carousel width */
+    max-width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white; /* Default text color for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Hidden by default */
+    visibility: visible; /* Keep visibility to visible */
+    transform: translateX(100%); /* Start outside view */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth fade-in and slide-in */
+}
+
+/* LinkedIn-specific styles */
+.linkedin-tile {
+    background-color: #0077b5; /* LinkedIn blue */
+}
+
+/* Instagram-specific styles */
+.instagram-tile {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+}
+
+/* Twitter-specific styles (formerly X) */
+.twitter-tile {
+    background-color: #1da1f2; /* Twitter blue */
+}
+
+/* Active tile */
+.tile.active {
+    opacity: 1;
+    transform: translateX(0); /* Slide into view */
+}
+
+
+/* Carousel track */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding */
+    width: 100%;
+    overflow: hidden; /* Hide non-visible tiles */
+}
+
+
+
+/* Carousel buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-button.left {
+    left: 0.5rem;
+}
+
+.carousel-button.right {
+    right: 0.5rem;
+}
+
+/* Indicators */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #4CAF50;
+}
+
+
+
+/* =================================================== */
+
+/* Socials carousel */
+#socials-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem; /* Adjust margin to move it down */
+}
+
+/* ============================================= */
+
+
+
+/* =================================================== */
+
+/* ============================================= */
+
+
+
+/* ============================================= */
 
 /* Footer Styling */
 footer {
     text-align: center;
     background-color: #f1f1f1;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Reduced padding */
     width: 100%;
     position: absolute; /* Position the footer at the bottom */
     bottom: 0;
+    font-size: 0.875rem; /* Optional: Reduce font size slightly */
 }
+
 

@@ -23,24 +23,58 @@
                 <i class="bi bi-search"></i>
             </button>
         </div>
-        
+    
         <!-- Sub-navigation links -->
         <nav class="sub-nav">
-            <a href="#all" class="active">
+            <a href="#all" class="active" data-section="all">
                 <i class="bi bi-grid"></i> All
             </a>
-            <a href="#resources">
-                <i class="bi bi-google"></i>Resources
+            <a href="#resources" data-section="resources">
+                <i class="bi bi-google"></i> Resources
             </a>
-            <a href="#socials">
+            <a href="#socials" data-section="socials">
                 <i class="bi bi-instagram"></i> Socials
             </a>
-            <a href="#news">
+            <a href="#news" data-section="news">
                 <i class="bi bi-newspaper"></i> News
             </a>
         </nav>
-        
+    
+        <!-- Content container to ensure consistent height -->
+        <div class="content-container">
+            <section id="all-content" class="content-section active">
+                <h2>All Content</h2>
+                <p>This is the "All" section.</p>
+            </section>
+            <section id="resources-content" class="content-section">
+                <h2>Resources</h2>
+                <p>This is the "Resources" section.</p>
+            </section>
+            <section id="socials-content" class="content-section">
+                <div class="carousel">
+                    <button class="carousel-button left" id="prev-btn">&lt;</button>
+                    <div class="carousel-track">
+                        <div class="tile linkedin-tile">LinkedIn</div>
+                        <div class="tile instagram-tile">Instagram</div>
+                        <div class="tile twitter-tile">X (formerly Twitter)</div>
+                    </div>
+                    
+                    <button class="carousel-button right" id="next-btn">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                </div>
+            </section>
+            
+            <section id="news-content" class="content-section">
+                <h2>News</h2>
+                <p>This is the "News" section.</p>
+            </section>
     </main>
+    
+    
 
     <footer>
         <p>&copy; 2024 AGSA Web Scraper</p>
