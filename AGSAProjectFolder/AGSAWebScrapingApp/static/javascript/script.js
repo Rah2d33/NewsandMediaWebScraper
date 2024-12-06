@@ -67,79 +67,47 @@ document.querySelectorAll('.sub-nav a').forEach(link => {
 
 // ===========================================================
 
-document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector(".carousel-track");
-    const tiles = Array.from(document.querySelectorAll(".tile"));
-    const indicators = document.querySelectorAll(".indicator");
-    const prevButton = document.getElementById("prev-btn");
-    const nextButton = document.getElementById("next-btn");
+const cards = document.querySelectorAll('.card');
+const indicators = document.querySelectorAll('.indicator');
+let currentIndex = 0;
 
-    let currentIndex = 0;
-    const slideInterval = 2500; // Auto-slide interval
-    let autoSlide;
+function updateSlider(index) {
+  cards.forEach((card, idx) => {
+    card.classList.remove('active', 'inactive-left', 'inactive-right');
+    if (idx === index) {
+      card.classList.add('active'); // Current active card
+    } else if (idx < index) {
+      card.classList.add('inactive-left'); // Cards to the left
+    } else {
+      card.classList.add('inactive-right'); // Cards to the right
+    }
+  });
 
-    const updateCarousel = () => {
-        // Update tiles
-        tiles.forEach((tile, index) => {
-            if (index === currentIndex) {
-                // Active tile
-                tile.classList.add("active");
-                tile.style.transform = "translateX(0)"; // Bring into view
-            } else {
-                // Inactive tiles
-                tile.classList.remove("active");
-                tile.style.transform = index < currentIndex ? "translateX(-100%)" : "translateX(100%)"; // Move out of view
-            }
+  // Update active indicator
+  indicators.forEach(indicator => indicator.classList.remove('active'));
+  indicators[index].classList.add('active');
+}
 
-            // Ensure opacity is set for each tile, active ones are visible
-            tile.style.opacity = index === currentIndex ? "1" : "0";
-        });
+function autoSlide() {
+  currentIndex = (currentIndex + 1) % cards.length;
+  updateSlider(currentIndex);
+}
 
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle("active", index === currentIndex);
-        });
-
-        // Update buttons
-        prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === tiles.length - 1;
-    };
-
-    const nextSlide = () => {
-        currentIndex = (currentIndex + 1) % tiles.length;
-        updateCarousel();
-    };
-
-    const prevSlide = () => {
-        currentIndex = (currentIndex - 1 + tiles.length) % tiles.length;
-        updateCarousel();
-    };
-
-    prevButton.addEventListener("click", () => {
-        clearInterval(autoSlide);
-        prevSlide();
-        autoSlide = setInterval(nextSlide, slideInterval);
-    });
-
-    nextButton.addEventListener("click", () => {
-        clearInterval(autoSlide);
-        nextSlide();
-        autoSlide = setInterval(nextSlide, slideInterval);
-    });
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => {
-            clearInterval(autoSlide);
-            currentIndex = index;
-            updateCarousel();
-            autoSlide = setInterval(nextSlide, slideInterval);
-        });
-    });
-
-    // Initialize carousel and start auto-sliding
-    updateCarousel();
-    autoSlide = setInterval(nextSlide, slideInterval);
+// Event listeners for indicators
+indicators.forEach(indicator => {
+  indicator.addEventListener('click', (e) => {
+    const index = parseInt(e.target.getAttribute('data-index'));
+    currentIndex = index;
+    updateSlider(index);
+  });
 });
+
+// Auto-slide every 3 seconds
+setInterval(autoSlide, 3000);
+
+// Initialize slider
+updateSlider(currentIndex);
+
 
 
 

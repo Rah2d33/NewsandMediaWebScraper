@@ -1,3 +1,11 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: hidden; 
+    height: 100%; /* Ensure body occupies full viewport height */
+}
+
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
@@ -7,6 +15,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+
 
 /* General header styling */
 header {
@@ -192,119 +202,129 @@ header {
 }
 
 /* ============================================= */
-
-/* Carousel container */
-.carousel {
-    display: flex;
+/* Carousel Section */
+/* .carousel { */
+    /* position: relative;
+    overflow: hidden;
+    margin-bottom: 20px; /* Slightly adjust position upwards */
+    /* display: flex;
     align-items: center;
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     overflow: hidden;
     padding-right: 40px;
-    padding-left: 40px;
-}
+    padding-left: 40px; */
+/* } */
 
-/* Carousel tile */
-/* Base styles for all tiles */
-.tile {
-    flex: 0 0 100%; /* Each tile takes full carousel width */
-    max-width: 100%;
-    height: 350px;
-    border-radius: 10px;
+  /* Card Slider Container */
+  .card-slider-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px; /* Adjusted width to prevent overflow */
+    margin: 0 auto 50px auto; /* Centered and add spacing below */
+    margin-top: 50px;
+  }
+  
+  /* Card Slider */
+  .card-slider {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white; /* Default text color for contrast */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0; /* Hidden by default */
-    visibility: visible; /* Keep visibility to visible */
-    transform: translateX(100%); /* Start outside view */
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth fade-in and slide-in */
-}
-
-/* LinkedIn-specific styles */
-.linkedin-tile {
-    background-color: #0077b5; /* LinkedIn blue */
-}
-
-/* Instagram-specific styles */
-.instagram-tile {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
-}
-
-/* Twitter-specific styles (formerly X) */
-.twitter-tile {
-    background-color: #1da1f2; /* Twitter blue */
-}
-
-/* Active tile */
-.tile.active {
-    opacity: 1;
-    transform: translateX(0); /* Slide into view */
-}
-
-
-/* Carousel track */
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth sliding */
+    height: 400px; /* Reduced height to avoid breaking the layout */
     width: 100%;
-    overflow: hidden; /* Hide non-visible tiles */
-}
-
-
-
-/* Carousel buttons */
-.carousel-button {
+    overflow: hidden; /* Prevent cards from overflowing */
+  }
+  
+  /* Individual Cards */
+  .card {
+    flex: 0 0 100%;
+    max-width: 400px; /* Adjusted width */
+    height: 400px; /* Adjusted height */
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
+  }
+  
+  /* Active Card */
+  .card.active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  /* Inactive Cards */
+  .card.inactive-left {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .card.inactive-right {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  /* Card Header */
+  .card-header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Circular Display Picture */
+  .display-pic {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+  }
+  
+  /* Card Body */
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Indicators */
+  .indicators {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.carousel-button.left {
-    left: 0.5rem;
-}
-
-.carousel-button.right {
-    right: 0.5rem;
-}
-
-/* Indicators */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.indicator {
+    margin-top: 35px;
+    position: relative;
+  }
+  
+  .indicator {
     width: 10px;
     height: 10px;
-    margin: 0 5px;
-    background-color: #ddd;
+    margin: 0 8px;
     border-radius: 50%;
+    background-color: #ccc;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.indicator.active {
-    background-color: #4CAF50;
-}
-
+    transition: background-color 0.3s;
+  }
+  
+  .indicator.active {
+    background-color: #007bff;
+  }
+  
+ 
+  
 
 
 /* =================================================== */
@@ -333,12 +353,21 @@ header {
 /* Footer Styling */
 footer {
     text-align: center;
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     background-color: #f1f1f1;
-    padding: 0.5rem 0; /* Reduced padding */
+    padding: 0.2rem 0; /* Reduced padding */
     width: 100%;
-    position: absolute; /* Position the footer at the bottom */
-    bottom: 0;
-    font-size: 0.875rem; /* Optional: Reduce font size slightly */
+    position: fixed; /* Fixed to viewport */
+    bottom: 0; /* Align at the very bottom */
+    font-size: 1rem; /* Slightly increased font size */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* If you only want vertical spacing */
+footer p {
+    margin-top: 20px; /* Add margin to text */
 }
 
 
