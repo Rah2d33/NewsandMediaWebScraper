@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: hidden; 
+    /* overflow-y: hidden;  */
     height: 100%; /* Ensure body occupies full viewport height */
 }
 
@@ -218,34 +218,12 @@ header {
     padding-left: 40px; */
 /* } */
 
-  /* Card Slider Container */
-  .card-slider-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 500px; /* Adjusted width to prevent overflow */
-    margin: 0 auto 50px auto; /* Centered and add spacing below */
-    margin-top: 50px;
-  }
-  
-  /* Card Slider */
-  .card-slider {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px; /* Reduced height to avoid breaking the layout */
-    width: 100%;
-    overflow: hidden; /* Prevent cards from overflowing */
-  }
-  
-  /* Individual Cards */
-  .card {
+/* LinkedIn Text */
+/* Individual Cards */
+.card {
     flex: 0 0 100%;
-    max-width: 400px; /* Adjusted width */
-    height: 400px; /* Adjusted height */
+    width: 300px;  /* Set width */
+    height: 300px; /* Adjust height for vertical rectangle */
     margin: 0 auto;
     border-radius: 12px;
     overflow: hidden;
@@ -255,6 +233,99 @@ header {
     opacity: 0;
     transition: all 0.5s ease-in-out;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+  }
+  
+  
+  /* Card Header */
+  .card-header {
+    background-color: #f2f2f2;
+    padding: 15px; /* Reduced padding */
+    text-align: center;
+    flex: 0 1 auto;
+    display: flex;
+    /* height: 20px; */
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Circular Display Picture */
+  .display-pic {
+    width: 90px; /* Smaller display picture */
+    height: 90px; /* Smaller display picture */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Card Body */
+  .card-body {
+    padding: 15px; /* Reduced padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    flex: 1;
+  }
+  
+  /* LinkedIn Text */
+  .linkedin-text {
+    color: #0077b5;
+    font-size: 1.5rem; /* Smaller font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Instagram Text */
+  .instagram-text {
+    color: #e4405f;
+    font-size: 1.5rem; /* Smaller font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Twitter Text */
+  .twitter-text {
+    color: #1da1f2;
+    font-size: 1.5rem; /* Smaller font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Bootstrap Icon Styling */
+  h1 i {
+    margin-right: 8px; /* Smaller margin for icon */
+    font-size: 1.3rem; /* Smaller icon size */
+  }
+  
+  /* Card Slider Container */
+  .card-slider-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px; /* Adjust container width */
+    margin: 0 auto 50px auto;
+    margin-top: 50px;
+  }
+  
+  /* Card Slider */
+  .card-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjusted height */
+    width: 100%;
+    overflow: hidden;
   }
   
   /* Active Card */
@@ -275,44 +346,19 @@ header {
     opacity: 0;
   }
   
-  /* Card Header */
-  .card-header {
-    background-color: #f2f2f2;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Circular Display Picture */
-  .display-pic {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-  }
-  
-  /* Card Body */
-  .card-body {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
   /* Indicators */
   .indicators {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 30px;
     position: relative;
   }
   
   .indicator {
-    width: 10px;
-    height: 10px;
-    margin: 0 8px;
+    width: 8px; /* Smaller indicator size */
+    height: 8px; /* Smaller indicator size */
+    margin: 0 6px; /* Adjusted spacing */
     border-radius: 50%;
     background-color: #ccc;
     cursor: pointer;
@@ -323,7 +369,11 @@ header {
     background-color: #007bff;
   }
   
- 
+  
+ /* ============================================= */
+
+
+/* =================================================== */
   
 
 
@@ -338,11 +388,7 @@ header {
     margin-top: 3rem; /* Adjust margin to move it down */
 }
 
-/* ============================================= */
 
-
-
-/* =================================================== */
 
 /* ============================================= */
 
